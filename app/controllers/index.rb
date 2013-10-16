@@ -33,11 +33,17 @@ post '/login' do
 end
 
 get '/create' do 
-  erb :create
+  if session[:user_id]
+    erb :create
+  else
+    @login_error = "Please login first!"
+    @posts = Post.all
+    erb :index
+  end
 end
 
 post '/create' do
-  post = Post.create(title: params[:title], link: params[:link], user_id: session[:user_id])
+  post = Post.create(title: params[:title], link: params[:link], user_id: session[:user_id], vote: 0)
   redirect to("/comment/#{post.id}")
 end
 
@@ -70,7 +76,7 @@ get '/create_comment/:post_id' do
 end
 
 post '/create_comment/:post_id' do
-  @comment = Comment.create(paragraph: params[:paragraph], user_id: session[:user_id], post_id: params[:post_id])
+  @comment = Comment.create(paragraph: params[:paragraph], user_id: session[:user_id], post_id: params[:post_id], vote: 0)
   redirect ("/comment/#{params[:post_id]}")
 end
 
@@ -99,3 +105,18 @@ get '/delete_user/:user_id' do
   User.destroy(params[:user_id])
   redirect ('/')
 end
+
+get '/upvote_post/:post_id' do
+  @post = Post.find(params[:post_id])
+  current_votes = (@post.vote + 1)
+  @post.update_attributes(vote: current_votes )
+  redirect ('/')
+end
+
+get '/downvote_post/:post_id' do
+  @post = Post.find(params[:post_id])
+  current_votes = (@post.vote - 1)
+  @post.update_attributes(vote: current_votes)
+  redirect ('/')
+end
+

@@ -1,4 +1,7 @@
 <div class="container">
+  <% if @login_error %>
+  <p><%= @login_error %></p>
+  <% end %>
   <% if session[:user_name] %>
     <h1 id="index_header">Welcome, <%= session[:user_name] %>!</h1>
   <% else %>
@@ -10,7 +13,9 @@
     <% if post.user_id == session[:user_id] %>
       <a href="/delete_post/<%= post.id %>?current_page=<%= request.path_info %>">delete</a>
     <% end %>
-    <p><a href="/user/<%=post.user_id%>"><%= post.user.name %></a> | <%= (((Time.now) - (post.created_at))/60).round(0) %> minutes ago | <a href="/comment/<%=post.id%>"><%= post.comments.count %> comments</a></p>
+    <a href="/upvote_post/<%= post.id %>?current_page=<%= request.path_info %>"> + </a>
+    <a href="/downvote_post/<%= post.id %>?current_page=<%= request.path_info %>"> - </a>
+    <p><a href="/user/<%=post.user_id%>"><%= post.user.name %></a> | <%= (((Time.now) - (post.created_at))/60).round(0) %> minutes ago | <a href="/comment/<%=post.id%>"><%= post.comments.count %> comments</a> | <%=post.vote%> points</p>
   </div>
   <% end %>
 </div>
