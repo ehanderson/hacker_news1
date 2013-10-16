@@ -1,0 +1,12 @@
+<div class= "container">
+  <h1 class="inline_h2">Update Your Profile</h1>
+  <a href="/delete_user/<%=session[:user_id]%>">Delete Your Profile</a>
+  <form action="/update_user" method='post' class="form">
+    <label for="about_input">About You:</label>
+    <textarea rows="10" cols="43" name="about" id="about_input"></textarea>
+    <br>
+    <input type="submit" name="submit" value="Update">
+  </form>
+  
+
+</div>

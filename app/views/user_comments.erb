@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Comments from <%= @user.name %></h1>
+  <% @comments.each do |comment| %>
+    <% post = Post.find(comment.post_id) %>
+    <p>
+      <a href="/user/<%= comment.user_id %>"><%= @user.name %></a>
+      <span><%= (((Time.now) - (comment.created_at))/60).round(0) %> minutes ago</span>
+      <a href="/comment/<%= post.id %>"><%= post.title %></a>
+    </p>
+    <p><%= comment.paragraph %></p>
+  <% end %>
+</div>

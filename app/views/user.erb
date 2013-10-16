@@ -1,0 +1,19 @@
+<div class="container">
+   <h1>All about <%=@user.name%></h1>
+
+  <p>created: <%=(((Time.now)-(@user.created_at))/60/60/24).round(0)%> days ago</p>
+  <p><% if session[:user_name] == @user.name %>
+       <a href="/profile/<%= @user.id %>">
+     <% end %>
+    about:
+    <% if session[:user_name] == @user.name %>
+       </a>
+    <% end %>
+    <%= @user.about %>
+    <br>
+    <a href="/user_posts/<%=@user.id%>">submissions</a>
+    <br>
+    <a href="/user_comments/<%=@user.id%>">comments</a></p>
+</div>
+
+

@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= @user.name %>'s posts</h1>
+  <% @posts.each do |post| %>
+  <div class= "post">
+    <h2 class="inline_h2"><a href="<%=post.link%>"><%= post.title.capitalize %></a></h2>
+    <% if post.user_id == session[:user_id] %>
+      <a href="/delete_post/<%= post.id %>?current_page=<%= request.path_info %>">delete</a>
+    <% end %>
+    <p><a href="/user/<%=post.user_id%>"><%= post.user.name %></a> | <%= (((Time.now) - (post.created_at))/60).round(0) %> minutes ago | <a href="/comment/<%=post.id%>"><%= post.comments.count %> comments</a>
+    </p>
+  </div>
+  <% end %>
+</div>

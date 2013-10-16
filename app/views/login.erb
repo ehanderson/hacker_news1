@@ -1,0 +1,29 @@
+<div class= "container">
+  <h1>Log In</h1>
+  <% if @login_error %>
+    <p><%= @login_error %></p>
+  <% end %>
+  <form action="/login" method='post' class="form">
+    <label for="name_input">Name</label>
+    <input type="text" name="name" id="name_input">
+    <br>
+    <label for="password_input">Password</label>
+    <input type="password" name="password" id="password_input">
+    <br>
+    <input type="submit" name="submit" value="Login">
+  </form>
+  <h1>Sign Up</h1>
+  <% if @signup_error %>
+    <p><%= @signup_error %></p>
+  <% end %>
+   <form action="/login" method='post' class="form">
+    <label for="name_input">Name</label>
+    <input type="text" name="name" id="name_input">
+    <br>
+    <label for="password_input">Password</label>
+    <input type="password" name="password" id="password_input">
+    <br>
+    <input type="submit" name="submit" value="Signup">
+  </form>
+
+</div>

@@ -1,0 +1,82 @@
+html {
+  background-color: #8643d6;
+}
+.container {
+  margin: 20px auto;
+  width: 960px;
+  padding: 0px 20px 20px 20px;
+  clear: both;
+  border: 2px solid #d235d2;
+  background-color: #d25fd2;
+}
+th {
+  text-align: left;
+}
+a {
+  text-decoration: none;
+  color: purple;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  height: 40px;
+  background-color: #560EAD;
+}
+nav h1 {
+  display: inline;
+
+}
+nav a {
+  float: left;
+  line-height: 40px;
+  text-decoration: none;
+  color: white;
+  margin-right: 25px;
+  margin-left: 15px;  
+}
+#login_link {
+  float: right;
+}
+
+.form label {
+  display: inline-block;
+  width: 70px;
+  height: 25px;
+  line-height: 25px;
+}
+.form input {
+  margin-top: 20px;
+  height: 25px;
+  line-height: 25px;
+  width: 400px;
+}
+.form input[type="submit"] {
+  width: 75px;
+  margin-left: 405px;
+}
+
+.inline_h2 {
+  display: inline;
+  margin-right: 10px;
+}
+
+.post {
+  margin-top: 20px;
+  background-color: white;
+  opacity: 0.6;
+  padding: 10px;
+}
+
+.post p {
+  margin-top: 0px;
+  margin-left: 20px;
+}
+
+#index_header {
+  text-align: center;
+  color: white;
+}
+
+

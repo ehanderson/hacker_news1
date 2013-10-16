@@ -1,0 +1,11 @@
+<div class= "container">
+  <h1>Comment on <%= @post.title %></h1>
+  <form action="/create_comment/<%= @post.id %>" method='post' class="form">
+    <label for="title_input">Comment</label>
+    <input type="text" name="paragraph" id="title_input">
+    <input type="hidden" name="post_id" value="@post.id">
+    <br>
+    <input type="submit" name="submit" value="post">
+  </form>
+
+</div>
